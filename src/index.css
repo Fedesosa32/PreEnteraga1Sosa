@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.carrito{
+    padding: 4px 6px;
+    display: inline-block;
+    position: relative;
+
+}
+.icono{
+  color: white;
+  font-size: 25px;
+}
+.bolsa{
+  position: absolute;
+  color: white;
+  font-size: 12px;
+}
+.tituloListado{
+  font-size: 30px;
+}
+.logo{
+  height: 12vh;
+  width: 12vh;
+}
+
+
+
