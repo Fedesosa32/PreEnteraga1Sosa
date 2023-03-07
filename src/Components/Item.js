@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function Item() {
+export default function Item({item}) {
     return (
         <div>
-            <li className='itemCard' key={Item.id}>
-                        <img src={Item.picture} alt={Item.title}/>
-                        <h3>{'${Item.title}'}</h3>
+            <li className='itemCard'>
+                        <img className='img' src={item.picture} alt={item.title}/>
+                        <h3 className='nombreDeProducto'> {item.title} </h3>
 
                     </li>
         </div>

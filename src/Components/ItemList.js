@@ -5,8 +5,8 @@ export default function ItemList({items}) {
     return (
     <div className='contenedorItemList'>
         <ul className='itemList'>
-            {items.map ((Item)=>(
-                <Item/>
+            {items.map ((item)=>(
+                <Item item = {item} key={item.id}/>
 
             ))   }
 

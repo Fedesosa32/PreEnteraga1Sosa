@@ -25,7 +25,7 @@ useEffect ( () => {
 
 
     return (
-    <div>
+    <div className='divPrincipal'>
         <h1 className='tituloListado'>{greeting}</h1>    
         <ItemList items={items}/>
     </div>
