@@ -4,6 +4,12 @@ import '../index.css';
 import products from '../Products/Products';
 import ItemDetail from './ItemDetail';
 
+
+function ItemDetailContainer ({greeting}) {
+const [item, setItem] = useState([]);
+
+const {id} = useParams();
+
 function detalleDeProducto (idItem){
     return new Promise((resolve, reject) => {
         setTimeout ( () => {
@@ -13,19 +19,13 @@ function detalleDeProducto (idItem){
     })
 }
 
-function ItemDetailContainer ({greeting}) {
-const [item, setItem] = useState([]);
-
-const params = useParams();
-const idItem = params.idItem;
-
 useEffect ( () => {
 
-    detalleDeProducto(idItem).then((datos) => {
+    detalleDeProducto(id).then((datos) => {
         setItem (datos);
     });
 },
-[])
+[id])
 
 
     return (

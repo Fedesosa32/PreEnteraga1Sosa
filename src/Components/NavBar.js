@@ -9,20 +9,21 @@ import { Link } from 'react-router-dom';
 export const NavBar = () => {
     return (
         <div>
-            
-            <Navbar bg="dark" variant="dark navbar-expand-sm ">
-                <Container>
-                <Navbar.Brand ><img className='logo' Link to= "/" src='./logo1.jpg' alt='Logo Sitio'></img></Navbar.Brand>
-                <Nav className="me-auto">
-                    <Link className='link' to="/">Inicio</Link>
-                    <Link to="/Detalle">Detalle</Link>
+            <Link to={"/"}>
+                <Navbar bg="dark" variant="dark navbar-expand-sm ">
+                    <Container>                        
+                        <Navbar.Brand ><img className='logo' src='./logo1.jpg' alt='Logo Sitio'></img></Navbar.Brand>
+                            <Nav className="me-auto">
+                                <Link className='link' to="/">Inicio</Link>
+                                <Link to="/Detalle">Detalle</Link>
+                                
+                            </Nav>
+                        <CartWidget/>
                     
-                </Nav>
-                <CartWidget/>
-                </Container>
-                
-            </Navbar>
-            
+                    </Container>
+                    
+                </Navbar>
+            </Link>
         </div>
         );
 }

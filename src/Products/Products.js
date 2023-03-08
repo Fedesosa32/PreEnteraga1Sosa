@@ -4,7 +4,7 @@ const products = [
         title: 'Maceta de Cemento',
         description: 'Pequeña vasija exagonal de cemento para adornos',
         price: 100.00,
-        picture: "/img/miniMaceta1.jpg",
+        picture: "../img/miniMaceta1.jpg",
         category: "maceta",
     },
     {
@@ -12,7 +12,7 @@ const products = [
         title: 'Maceta de Cemento',
         description: 'Macetas cilindricas de diferentes colores',
         price: 200.00,
-        picture: "/img/miniMaceta2.jpg",
+        picture: "../img/miniMaceta2.jpg",
         category: "maceta",
     },
     {
@@ -20,7 +20,7 @@ const products = [
         title: 'Maceta de Cemento',
         description: 'Pequeña vasija exagonal de cemento para adornos con planta includida',
         price: 300.00,
-        picture: "/img/miniMaceta3.jpg",
+        picture: "../img/miniMaceta3.jpg",
         category: "maceta",
     },
     {
@@ -28,7 +28,7 @@ const products = [
         title: 'Velas Corazón',
         description: 'Adornos para el hogar',
         price: 100.00,
-        picture: "/img/velas1.jpg",
+        picture: "../img/velas1.jpg",
         category: "velas",
     },
     {
@@ -36,7 +36,7 @@ const products = [
         title: 'Velas Corazón Cilindricas',
         description: 'Adornos para el hogar',
         price: 200.00,
-        picture: "/img/velas2.jpg",
+        picture: "../img/velas2.jpg",
         category: "velas",
     },
     {
@@ -44,7 +44,7 @@ const products = [
         title: 'Velas Buho',
         description: 'Adornos para el hogar',
         price: 300.00,
-        picture: "/img/velas3.jpg",
+        picture: "../img/velas3.jpg",
         category: "velas",
     },
 

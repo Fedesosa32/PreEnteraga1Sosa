@@ -10,17 +10,16 @@ import ItemDetailContainer from './Components/ItemDetailContainer';
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
+      <BrowserRouter>
 
-    <NavBar/> 
+      <NavBar/> 
 
-      <Routes>
-        <Route path='/' element={<ItemListContainer greeting={"Bienvenidos a Beebus!"}/>} />
-        <Route path='/detalle' element={<ItemDetailContainer/>}/>
-        <Route path='/' element={<NavBar.Brand/>}/>
-      </Routes>
+          <Routes>
+              <Route path='/' element={<ItemListContainer greeting={"Bienvenidos a Beebus!"}/>} />
+              <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+          </Routes>
 
-    </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }
