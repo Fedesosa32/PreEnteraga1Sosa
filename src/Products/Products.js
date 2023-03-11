@@ -6,6 +6,7 @@ const products = [
         price: 100.00,
         picture: "../img/miniMaceta1.jpg",
         category: "maceta",
+        stock: 10,
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const products = [
         price: 200.00,
         picture: "../img/miniMaceta2.jpg",
         category: "maceta",
+        stock: 10,
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ const products = [
         price: 300.00,
         picture: "../img/miniMaceta3.jpg",
         category: "maceta",
+        stock: 10,
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ const products = [
         price: 100.00,
         picture: "../img/velas1.jpg",
         category: "velas",
+        stock: 10,
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const products = [
         price: 200.00,
         picture: "../img/velas2.jpg",
         category: "velas",
+        stock: 10,
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ const products = [
         price: 300.00,
         picture: "../img/velas3.jpg",
         category: "velas",
+        stock: 10,
     },
 
 ];
