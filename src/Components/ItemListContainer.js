@@ -48,7 +48,7 @@ useEffect ( () => {
     });
     leerDatos();
 },
-[])
+[idCategory])
 
 
     return (
