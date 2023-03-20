@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../index.css';
+import Button from 'react-bootstrap/Button';
 
 export default function Item({item}) {
     return (
@@ -9,7 +10,7 @@ export default function Item({item}) {
                         <img className='img' src={item.picture} alt={item.title}/>
                         <h3 className='nombreDeProducto'> {item.title} </h3>
                         <Link to={`/detalle/${item.id}`}>
-                            <button>Ir al detalle</button>
+                        <Button variant="primary">Detalle</Button>
                         </Link>
                     </li>
         </div>

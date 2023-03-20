@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import '../index.css';
 import products from '../Products/Products';
 import ItemDetail from './ItemDetail';
+import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import cartContext from '../context/cartContext';
+
 
 
 function ItemDetailContainer ({greeting}) {
@@ -19,22 +23,21 @@ function detalleDeProducto (idItem){
     })
 }
 
+
 useEffect ( () => {
 
     detalleDeProducto(id).then((datos) => {
         setItem (datos);
     });
 },
-[id])
-
+[id]);
 
     return (
     <div className='divPrincipal'>
         <h1 className='tituloListado'>{greeting}</h1>    
-        <ItemDetail item={item}/>
-        
-
+        <ItemDetail item={item}/>   
     </div>
+    
     )
 }
 

@@ -1,28 +1,30 @@
 import { useState } from "react";   
+import Button from 'react-bootstrap/Button';
+
 
 const ItemCount = ({initial, stock, onAdd}) => {
-        const [count, setCount] = useState(0);
+        const [count, setCount] = useState(initial);
         
         const decrease = () => {
-            if(count>initial){
+            if(count > initial){
             setCount(count -1 );
             }
             
         };
         
         const increase = () => {
-            if(count<stock){
+            if(count < stock){
             setCount(count + 1);}
 
-    };   return( <div>
-    <button className='bot' onClick={decrease}>
-    -
-    </button>
-    <span className='contador'> {count} </span>
-    <button  className='bot' onClick={increase}>
-    +
-    </button>
-    <button  className='bot'onClick={()=> onAdd(count) }>Agregar al carrito</button>
-    </div>)
+    };   return( 
+        <div>
+            <Button variant="warning" onClick={decrease}> - </Button>
+            
+            <span className='contador'> {count} </span>
+            <Button variant="warning" onClick={increase}> + </Button>
+            
+            <Button variant="primary" onClick={()=> onAdd(count) }>Agregar al Carrito</Button>
+        </div>)
+        
     }
     export default ItemCount

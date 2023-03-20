@@ -15,8 +15,8 @@ export const NavBar = () => {
                         <Navbar.Brand ><img className='logo' src='./logo1.jpg' alt='Logo Sitio'></img></Navbar.Brand>
                             <Nav className="me-auto">
                                 <Link className='link' to="/">Inicio</Link>
-                                <Link to="/category/maceta">Maceta</Link>
-                                <Link to="/category/velas">Velas</Link>
+                                <Link className='link' to="/category/maceta">Maceta</Link>
+                                <Link className='link' to="/category/velas">Velas</Link>
                                 
                             </Nav>
                         <CartWidget/>

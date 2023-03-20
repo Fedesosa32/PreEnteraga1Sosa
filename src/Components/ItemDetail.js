@@ -1,7 +1,16 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import cartContext from '../context/cartContext';
 
+
+const { agregarItem } = useContext(cartContext);
+
+function onAdd (count) {
+    alert (`agregaste ${count} productos al carrito`);
+    agregarItem (item, count);
+}
 
 function ItemDetail({item}) {
     return (
@@ -9,12 +18,15 @@ function ItemDetail({item}) {
         <Card.Img variant="top" src= {item.picture}/>
         <Card.Body>
             <Card.Title>{item.title}</Card.Title>
-            <Card.Text>
-            {item.description}
-            </Card.Text>
-            <Button variant="primary">Agregar al Carrito</Button>
+            <Card.Text> {item.description}</Card.Text>
+            <p> Precio: ${item.price}</p>
+            <ItemCount onAdd={onAdd} initial={1} stock={item.stock}/>
+            
         </Card.Body>
+        
+        
         </Card>
+        
     );
 }
 
