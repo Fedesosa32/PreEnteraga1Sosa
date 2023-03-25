@@ -1,5 +1,6 @@
 import { useState } from "react";   
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 
 const ItemCount = ({initial, stock, onAdd}) => {
@@ -22,8 +23,9 @@ const ItemCount = ({initial, stock, onAdd}) => {
             
             <span className='contador'> {count} </span>
             <Button variant="warning" onClick={increase}> + </Button>
-            
-            <Button variant="primary" onClick={()=> onAdd(count) }>Agregar al Carrito</Button>
+            <Link to="/cart">
+                <Button variant="primary" onClick={()=> onAdd(count) }>Agregar al Carrito</Button>
+            </Link>
         </div>)
         
     }

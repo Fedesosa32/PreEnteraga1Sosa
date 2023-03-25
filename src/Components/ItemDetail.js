@@ -3,18 +3,20 @@ import Card from 'react-bootstrap/Card';
 import ItemCount from './ItemCount';
 import { useContext } from 'react';
 import cartContext from '../context/cartContext';
+import Loader from './Loader';
 
 
-const { agregarItem } = useContext(cartContext);
+function ItemDetail({item}) {
+    const { agregarItem } = useContext(cartContext);
 
 function onAdd (count) {
     alert (`agregaste ${count} productos al carrito`);
     agregarItem (item, count);
 }
+if (item.id === undefined) return <Loader/>
 
-function ItemDetail({item}) {
     return (
-        <Card style={{ width: '30rem', height:'30rem' }}>
+        <Card style={{ width: '25rem', height:'25rem', borderRadius:'15px'}}>
         <Card.Img variant="top" src= {item.picture}/>
         <Card.Body>
             <Card.Title>{item.title}</Card.Title>

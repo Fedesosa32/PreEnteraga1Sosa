@@ -7,6 +7,7 @@ const products = [
         picture: "../img/miniMaceta1.jpg",
         category: "maceta",
         stock: 10,
+        offer: 20,
     },
     {
         id: 2,
@@ -43,6 +44,7 @@ const products = [
         picture: "../img/velas2.jpg",
         category: "velas",
         stock: 10,
+        offer: 20,
     },
     {
         id: 6,

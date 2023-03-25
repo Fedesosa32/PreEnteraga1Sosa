@@ -13,7 +13,7 @@ const CartWidget = () => {
     return (
         <a href='#' className='carrito'>
         <BsFillCartCheckFill className="icono"/>
-        <span className='bolsa'>{cartCount}</span>
+        <span className='bolsa'>{cartCount.count}</span>
         </a>
     );
 }
