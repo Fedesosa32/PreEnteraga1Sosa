@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import Table from 'react-bootstrap/Table';
 import cartContext from '../context/cartContext';
 import { Button } from 'react-bootstrap';
+import CheckoutCart from './CheckoutCart';
 
 function CartContainer() {
-  const {cart} = useContext (cartContext);
+  const {cart, precioParcial, eliminarDelCarrito} = useContext (cartContext);
 
   return (
     <>
@@ -30,7 +31,7 @@ function CartContainer() {
           <td>{item.price}</td>
           <td>{item.count}</td>
           <td>
-          <Button variant="danger">Eliminar</Button>
+          <Button variant="danger" onClick={()=> eliminarDelCarrito (item)}>Eliminar</Button>
           </td>
           <td>$ </td>
         </tr>
@@ -40,6 +41,8 @@ function CartContainer() {
           <div>
             <h5>El precio total de tu compra es de $ </h5>
           </div>
+          <CheckoutCart total= {precioParcial()} cart = {cart}/>
+          
     </>
   )
 }

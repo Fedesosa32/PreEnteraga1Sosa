@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import '../index.css';
-import products from '../Products/Products';
 import ItemDetail from './ItemDetail';
-
 import { getFirestore, doc, getDoc, collection } from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
 
@@ -20,9 +18,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore (app);
 
-async function detalleDeProducto(idItem){
+async function detalleDeProducto(id){
     const coleccionDeProductos = collection(db, "products");
-    const referenciaDoc = doc (coleccionDeProductos, idItem )
+    const referenciaDoc = doc (coleccionDeProductos, id)
     const docSnapshot = await getDoc(referenciaDoc);
     return {...docSnapshot.data(), id: docSnapshot.id };
 }
@@ -31,17 +29,6 @@ function ItemDetailContainer ({greeting}) {
 const [item, setItem] = useState([]);
 
 const {id} = useParams();
-
-/*function detalleDeProducto (idItem){
-    return new Promise((resolve, reject) => {
-        setTimeout ( () => {
-            let itemIndividual = products.find ((item)=> item.id === Number(idItem));
-            if (itemIndividual !== undefined) resolve (itemIndividual);
-            else reject ("Item No Encontrado");
-        }, 2000);
-    })
-}*/
-
 
 useEffect ( () => {
 

@@ -11,10 +11,10 @@ const CartWidget = () => {
     const cartCount = cart.length;
 
     return (
-        <a href='#' className='carrito'>
+        <span className='carrito'>
         <BsFillCartCheckFill className="icono"/>
-        <span className='bolsa'>{cartCount.count}</span>
-        </a>
+        <span className='bolsa'>{cartCount.length}</span>
+        </span>
     );
 }
 

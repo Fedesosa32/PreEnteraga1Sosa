@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import '../index.css';
-import products from '../Products/Products';
 import ItemList from './ItemList';
 import Loader from './Loader';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { getFirestore } from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
 
@@ -35,24 +34,20 @@ async function datosDeProductos(){
 
 
 }
-/*function datosDeProductos (){
-    return new Promise((resolve, reject) => {
-        let error = false
 
-        setTimeout ( () => {
-            if (error === true) reject ("Error leyendo datos");
-            resolve (products);
-        }, 2000);
-    })
-}*/
+async function categoriaDeProductos(categoryUrl){
+    const coleccionDeProductos = collection(db, "products");
+    const q = query(coleccionDeProductos, where("category", "==", categoryUrl));
 
-function categoriaDeProductos (categoryUrl){
-    return new Promise((resolve, reject) => {
-        setTimeout ( ( ) => {
-            let tipoDeProducto = products.filter((item) => item.category === categoryUrl);
-            resolve (tipoDeProducto)
-        }, 2000);
+    let snapshotProducts = await getDocs(q);
+    const documents = snapshotProducts.docs;
+
+    const dataProd = documents.map ((doc)=>{
+        const producto = doc.data();
+        producto.id = doc.id;
+        return producto;
     });
+    return dataProd;
 }
 
 function ItemListContainer ({greeting}) {

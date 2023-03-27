@@ -10,20 +10,42 @@ function CartContextProvider (props) {
     const [cart, setCart] = useState ([]);
 
     function agregarItem (item, count){
-        const nuevoCarrito = [...cart]
-        item.count = count;
-        nuevoCarrito.push (item);
-        setCart (nuevoCarrito)
+        
+        const nuevoCarrito = JSON.parse(JSON.stringify(cart));
+        if (estaEnElCarrito(item.id)) {
+            let index = cart.findIndex((itemEnCarrito) => itemEnCarrito.id === item.id);
+            nuevoCarrito[index].count = nuevoCarrito[index].count + count;
+            } else {
+            nuevoCarrito.push({ ...item, count });
+            }
+            setCart(nuevoCarrito);
+            console.log(nuevoCarrito)
+    
     }
+
+    function estaEnElCarrito(id) {
+        return cart.some((item) => item.id === id);
+    }
+    
+    const eliminarDelCarrito = (item) => {
+        const nuevoCart = cart.filter((product) => product !== item);
+        setCart(nuevoCart);
+    };
 
     function numeroEnCarrito(){
         let total = 0;
-        cart.forEach( (item) => total + item.count);
+        cart.forEach( (item) => total += item.count);
         return total;
     }
 
+    function precioParcial(){
+        let total = 0;
+        cart.forEach( (item) => item.count * item.price);
+        return total;
+        
+    }
     return(
-        <cartContext.Provider value={{cart, agregarItem}}>
+        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioParcial}}>
             {props.children}
         </cartContext.Provider>
     )
