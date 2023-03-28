@@ -38,14 +38,15 @@ function CartContextProvider (props) {
         return total;
     }
 
-    function precioParcial(){
+    function precioTotal(){
         let total = 0;
-        cart.forEach( (item) => item.count * item.price);
+        cart.forEach( (item) => total += (item.count * item.price));
         return total;
         
     }
+    
     return(
-        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioParcial}}>
+        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
             {props.children}
         </cartContext.Provider>
     )
