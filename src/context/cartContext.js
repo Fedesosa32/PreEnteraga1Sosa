@@ -1,4 +1,5 @@
 import { createContext, useState} from "react";
+import Swal from "sweetalert2";
 
 
 const cartContext = createContext ({
@@ -30,8 +31,15 @@ function CartContextProvider (props) {
     const eliminarDelCarrito = (item) => {
         const nuevoCart = cart.filter((product) => product !== item);
         setCart(nuevoCart);
+        Swal.fire(
+            'Producto Eliminado!',
+            'Esta acción no se puede deshacer',
+            'success',
+        )
     };
-
+    function vaciarCarrito(){
+        setCart= ([]);
+    }
     function numeroEnCarrito(){
         let total = 0;
         cart.forEach( (item) => total += item.count);
@@ -46,7 +54,7 @@ function CartContextProvider (props) {
     }
     
     return(
-        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
+        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, vaciarCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
             {props.children}
         </cartContext.Provider>
     )

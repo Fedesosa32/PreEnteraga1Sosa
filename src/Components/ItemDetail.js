@@ -4,14 +4,16 @@ import ItemCount from './ItemCount';
 import { useContext } from 'react';
 import cartContext from '../context/cartContext';
 import Loader from './Loader';
+import Swal from 'sweetalert2';
 
 
 function ItemDetail({item}) {
     const { agregarItem } = useContext(cartContext);
 
 function onAdd (count) {
-    alert (`agregaste ${count} productos al carrito`);
     agregarItem (item, count);
+    Swal.fire(`Agregaste ${count} producto/s al carrito!`)
+
 }
 if (item.id === undefined) return <Loader/>
 

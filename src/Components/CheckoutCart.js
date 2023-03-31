@@ -1,31 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button';
 import { crearOrden } from '../services/firestore';
-import CartContext from '../context/cartContext';
+import cartContext from '../context/cartContext';
+import CheckOutForm from './CheckOutForm';
 
 
-function CheckoutCart(cart, precioTotal) {
+function CheckoutCart(cart) {
+    const [userData, setUserData] = useState({
+        name: "",
+        lastName: "",
+        email: "",
+        phone: "",
+    
+    })
     const [ordenId, setOrdenId] = useState(null);
+    const {precioTotal} = useContext (cartContext);
 
-    async function finalizarCompra(){
-        
+    async function finalizarCompra(){        
             const orderData={
-            comprador: {name: "Fede", phone: "351222222", email: "fede@fede.com"},
+            comprador: userData,
             items: cart,
-            total: precioTotal,
+            total: precioTotal(),
             timestamp: new Date(),
+            
         }
+
     const id = await crearOrden(orderData)
     setOrdenId (id);
     }
     return (
         <div>
+            <CheckOutForm userData={userData} setUserData={setUserData}/>
         {
             ordenId ? 
-            <h4>Gracias por tu compra!!</h4>
+            <h4 style={{marginTop:"10px", color:"blue", fontSize:"35px"}}>Gracias por tu Compra!!</h4>
             :
-            <Button variant="primary" onClick={finalizarCompra}>Finalizar Compra</Button>  
+            <Button variant="success" onClick={finalizarCompra}>Finalizar Compra</Button>            
         }
+        
         </div>
     )
 }

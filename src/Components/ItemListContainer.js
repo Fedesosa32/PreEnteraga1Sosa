@@ -9,11 +9,11 @@ import { initializeApp } from "firebase/app";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAiF4ARD9QAomTQkKjEZRPSgyAZEk7NNHE",
-    authDomain: "beebus-602ef.firebaseapp.com",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
     projectId: "beebus-602ef",
     storageBucket: "beebus-602ef.appspot.com",
-    messagingSenderId: "296074327845",
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId: "1:296074327845:web:890ca2c03802524458cccc"
 };
 
@@ -31,8 +31,6 @@ async function datosDeProductos(){
         return producto;
     });
     return dataProd;
-
-
 }
 
 async function categoriaDeProductos(categoryUrl){
@@ -78,7 +76,6 @@ useEffect ( () => {
     leerDatos();
 },
 [idCategory])
-
 
     return (
     <div className='divPrincipal'>

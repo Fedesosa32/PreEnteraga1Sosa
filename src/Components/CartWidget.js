@@ -7,8 +7,7 @@ import cartContext from '../context/cartContext';
 
 
 const CartWidget = () => {
-    const{cart, numeroEnCarrito} = useContext (cartContext);
-    const cartCount = cart.length;
+    const{numeroEnCarrito} = useContext (cartContext);    
 
     return (
         <span className='carrito'>

@@ -9,7 +9,7 @@ function CartContainer() {
 
   return (
     <>
-    <h3>Carrito de Compras</h3>
+    <h3 style={{margin:"10px"}}>Carrito de Compras</h3>
     <Table striped bordered hover variant="dark">
       <thead>
         <tr>
