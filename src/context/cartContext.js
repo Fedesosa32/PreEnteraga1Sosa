@@ -36,7 +36,11 @@ function CartContextProvider (props) {
             'Esta acción no se puede deshacer',
             'success',
         )
-    };
+    }
+
+    function vaciarCarrito(){
+        setCart ([]);
+    }
     
     function numeroEnCarrito(){
         let total = 0;
@@ -52,7 +56,7 @@ function CartContextProvider (props) {
     }
     
     return(
-        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
+        <cartContext.Provider value={{cart, agregarItem, vaciarCarrito, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
             {props.children}
         </cartContext.Provider>
     )

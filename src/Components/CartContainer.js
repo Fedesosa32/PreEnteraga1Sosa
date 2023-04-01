@@ -18,7 +18,6 @@ function CartContainer() {
           <th>Precio</th>
           <th>Cantidad</th>
           <th>Eliminar</th>
-          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +32,6 @@ function CartContainer() {
           <td>
           <Button variant="danger" onClick={()=> eliminarDelCarrito (item)}>Eliminar</Button>
           </td>
-          <td>$ </td>
         </tr>
       ))}  
       </tbody>

@@ -14,7 +14,8 @@ function CheckoutCart(cart) {
     
     })
     const [ordenId, setOrdenId] = useState(null);
-    const {precioTotal} = useContext (cartContext);
+    const {precioTotal, vaciarCarrito} = useContext (cartContext);
+    
 
     async function finalizarCompra(){        
             const orderData={
@@ -26,6 +27,7 @@ function CheckoutCart(cart) {
 
     const id = await crearOrden(orderData)
     setOrdenId (id);
+    vaciarCarrito();
     }
     return (
         <div>
