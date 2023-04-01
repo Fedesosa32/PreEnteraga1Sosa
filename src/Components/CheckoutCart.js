@@ -21,8 +21,7 @@ function CheckoutCart(cart) {
             comprador: userData,
             items: cart,
             total: precioTotal(),
-            timestamp: new Date(),
-            
+            timestamp: new Date(),            
         }
 
     const id = await crearOrden(orderData)
@@ -36,8 +35,7 @@ function CheckoutCart(cart) {
             <h4 style={{marginTop:"10px", color:"blue", fontSize:"35px"}}>Gracias por tu Compra!!</h4>
             :
             <Button variant="success" onClick={finalizarCompra}>Finalizar Compra</Button>            
-        }
-        
+        }        
         </div>
     )
 }

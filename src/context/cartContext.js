@@ -37,9 +37,7 @@ function CartContextProvider (props) {
             'success',
         )
     };
-    function vaciarCarrito(){
-        setCart= ([]);
-    }
+    
     function numeroEnCarrito(){
         let total = 0;
         cart.forEach( (item) => total += item.count);
@@ -54,7 +52,7 @@ function CartContextProvider (props) {
     }
     
     return(
-        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, vaciarCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
+        <cartContext.Provider value={{cart, agregarItem, eliminarDelCarrito, estaEnElCarrito, numeroEnCarrito, precioTotal}}>
             {props.children}
         </cartContext.Provider>
     )
